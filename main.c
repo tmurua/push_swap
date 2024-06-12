@@ -6,17 +6,21 @@
 /*   By: tmurua <tmurua@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 17:21:45 by tmurua            #+#    #+#             */
-/*   Updated: 2024/06/03 17:22:34 by tmurua           ###   ########.fr       */
+/*   Updated: 2024/06/12 15:22:50 by tmurua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/* Processes command-line arguments, creates stack_a,
-ensures data integrity by checking for duplicates, validating stack size,
-and sorted input.
-Selects and applies sorting algorithms based on the size of the stack,
-and releases all allocated memory resources before program termination. */
+/*
+1. Take *av[] as arguments.
+2. Create linked list stack_a as t_node (structure in the push_swap.h file).
+3. Handle single argument with ft_split.
+4. Handle multiple arguments by converting string argument to int with.
+	custom_atoi and adding the ints to the linked list 'stack_a' with add_node.
+5. Perform data integrity checks (duplicates, valid integers) w/perform_checks.
+6. Select and apply sorting algorithms based on the size of the stack.
+7. Release all allocated memory before program termination with free_all. */
 int	main(int ac, char **av)
 {
 	int		i;

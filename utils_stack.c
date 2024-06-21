@@ -6,13 +6,20 @@
 /*   By: tmurua <tmurua@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 17:24:07 by tmurua            #+#    #+#             */
-/*   Updated: 2024/06/03 17:24:14 by tmurua           ###   ########.fr       */
+/*   Updated: 2024/06/21 02:48:37 by tmurua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/* Adds a new node with the specified number to the end of the linked list. */
+/* Adds a new node with the specified number to the end of the linked list.
+1. Find last node in the linked list using last_node: last = last_node(head);
+2. Allocate memory for a new node
+3. Initialize the new node with the given number
+4. Set index to -1 to indicate it hasn't been assigned yet
+5. Initialize next pointer to NULL, since new node wil be the last in the list
+6. If the list is empty, set the new node as the head: new->prev = NULL;
+7. If it isn't, add new node to the end: last->next = new; new->prev = last; */
 t_node	*add_node(t_node *head, int nbr)
 {
 	t_node	*last;
@@ -39,8 +46,22 @@ t_node	*add_node(t_node *head, int nbr)
 	}
 }
 
-/* Returns the size of the linked list.
-Raises an error if the size equals or exceeds INT_MAX. */
+/*	1. Check if the list is empty, if so returns NULL
+	2. Traverse the list until stack->next is NULL, i.e. last node was found
+	3. Return a pointer to the last node found in the linked list */
+t_node	*last_node(t_node *stack)
+{
+	if (stack == NULL)
+		return (NULL);
+	while (stack->next)
+		stack = stack->next;
+	return (stack);
+}
+
+/*	1. Initialize size to 0.
+	2. Traverse the linked list from head to end.
+	3. Increment size for each node encountered.
+	4. Return the size of the linked list. */
 int	stack_size(t_node *head)
 {
 	int	size;
@@ -52,17 +73,6 @@ int	stack_size(t_node *head)
 		size++;
 	}
 	return (size);
-}
-
-/* Returns a pointer to the last node in the linked list.
-If the list is empty, returns NULL. */
-t_node	*last_node(t_node *stack)
-{
-	if (stack == NULL)
-		return (NULL);
-	while (stack->next)
-		stack = stack->next;
-	return (stack);
 }
 
 /* Returns the position of the minimum element in the linked list. */

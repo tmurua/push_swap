@@ -6,7 +6,7 @@
 /*   By: tmurua <tmurua@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 17:23:09 by tmurua            #+#    #+#             */
-/*   Updated: 2024/06/03 17:24:24 by tmurua           ###   ########.fr       */
+/*   Updated: 2024/06/19 16:04:19 by tmurua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	atob_interval(t_node **head_a, t_node **head_b)
 		{
 			pb(head_a, head_b);
 			if ((*head_b)->index
-				< (count_inter * size_inter) - (size_inter / 2)) //Comment this if-statement (incl. rb) out to understand the algorithm quicker. Un-comment it again for better performance.
+				< (count_inter * size_inter) - (size_inter / 2))
 				rb(head_b);
 			i++;
 		}

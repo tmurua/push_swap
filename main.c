@@ -6,21 +6,26 @@
 /*   By: tmurua <tmurua@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 17:21:45 by tmurua            #+#    #+#             */
-/*   Updated: 2024/06/12 15:22:50 by tmurua           ###   ########.fr       */
+/*   Updated: 2024/06/21 01:54:32 by tmurua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 /*
-1. Take *av[] as arguments.
-2. Create linked list stack_a as t_node (structure in the push_swap.h file).
-3. Handle single argument with ft_split.
-4. Handle multiple arguments by converting string argument to int with.
-	custom_atoi and adding the ints to the linked list 'stack_a' with add_node.
-5. Perform data integrity checks (duplicates, valid integers) w/perform_checks.
-6. Select and apply sorting algorithms based on the size of the stack.
-7. Release all allocated memory before program termination with free_all. */
+1. Take *av[] as arguments
+2. Create linked list stack_a as t_node (structure in push_swap.h file)
+3. Handle case with no arguments: if (ac == 1)
+4. Handle single argument with ft_split: if (ac == 2)
+	- Split the single argument into an array of arguments
+	- Handle the case where splitting fails
+	- Process split arguments from start, without program name: i = 0
+5. Handle multiple arguments: if (ac > 1)
+	- Convert current string argument (av[i]) to int with custom_atoi, then i++
+	- Add current int as node to the linked list 'stack_a' with add_node
+6. Perform data integrity checks (duplicates, valid integers) w/perform_checks.
+7. Select and apply sorting algorithms based on the size of the stack.
+8. Release all allocated memory before program termination with free_all. */
 int	main(int ac, char **av)
 {
 	int		i;

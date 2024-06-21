@@ -6,15 +6,19 @@
 /*   By: tmurua <tmurua@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 17:23:43 by tmurua            #+#    #+#             */
-/*   Updated: 2024/06/03 17:24:20 by tmurua           ###   ########.fr       */
+/*   Updated: 2024/06/20 19:43:49 by tmurua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/* Performs size and duplicate checks on the given stack A.
-If either check fails, frees memory and terminates with an error.
-If the stack is already sorted, free memory and exit successfully. */
+/* Perform data integrity checks (duplicates, valid integers).
+1. Check if the stack contains any integers that are too large.
+2. Check for duplicate values in the stack.
+3. If any of the above checks fail, free all allocated memory,
+	print an error message, and exit with an error status.
+4. Check if the stack is already sorted.
+5. If the stack is sorted, free all allocated memory and exit successfully. */
 void	perform_checks(t_node *stack_a, int ac, char **av)
 {
 	if (is_too_big(stack_a) || has_duplicates(stack_a))

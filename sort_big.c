@@ -6,13 +6,17 @@
 /*   By: tmurua <tmurua@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 17:23:09 by tmurua            #+#    #+#             */
-/*   Updated: 2024/06/19 16:04:19 by tmurua           ###   ########.fr       */
+/*   Updated: 2024/07/13 03:24:45 by tmurua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/* Sorts lists with more than 5 numbers. */
+/* Sort large nbr of elements w/combination of sorting and indexing strategies
+1. Assign indexes to elements in stack_a
+2. Move elements from stack_a to stack_b in sorted intervals
+3. Move elements from stack_b back to stack_a in sorted order
+4. Return the sorted stack_a */
 t_node	*sort_big(t_node *head_a, t_node *head_b)
 {
 	assign_indexes(head_a);
@@ -21,10 +25,10 @@ t_node	*sort_big(t_node *head_a, t_node *head_b)
 	return (head_a);
 }
 
-/* Assigns indexes to numbers in the list,
-ensuring the node with the highest numbers gets an index of stack size - 1,
-and the node with the lowest number gets an index of 0.
-Each node's index was initialized to -1 in the add_node function.*/
+/* Assign indexes to each element in stack_a based on their value.
+1. Get the size of stack_a.
+2. For each element, find the max unindexed element and assign an index to it
+3. Repeat until all elements are indexed. */
 void	assign_indexes(t_node *head_a)
 {
 	int		size_a;
@@ -51,15 +55,12 @@ void	assign_indexes(t_node *head_a)
 	}
 }
 
-/* Pushes nodes from stack A to stack B
-if their indexes are within the determined intervals (inter).
-By performing a monte-carlo-like simulation the best interval size was
-determined to be 1/10th of the stack size plus 15. Adapt the
-interval size to your implementation.
-Nodes with indexes falling within the current interval
-are moved to stack B.
-Additionally (see in-line comment) if their index is smaller than the
-middle of the interval, they are placed at the bottom of stack B. */
+/* Move elements from stack_a to stack_b in sorted intervals
+1. Calculate the size of each interval
+2. For each element in stack_a, move it to stack_b if belongs to current interval
+3. Adjust the interval size and count as needed
+4. If the element belongs to the lower half of the interval, rotate stack_b
+5. If the element does not belong to the current interval, rotate stack_a */
 void	atob_interval(t_node **head_a, t_node **head_b)
 {
 	int	size_inter;
@@ -86,11 +87,11 @@ void	atob_interval(t_node **head_a, t_node **head_b)
 	}
 }
 
-/* Pushes the maximum element from stack B to stack A based on assigned indexes.
-If the highest indexes (and thereby number's) position is less than or
-equal to half of stack B's size meaning the node is in the upper half
-of the stack), it is rotated to the top and then pushed to stack A;
-otherwise it is rotated to the bottom and then pushed to stack A. */
+/* Move elements from stack_b back to stack_a in sorted order.
+1. Find the position of the maximum index in stack_b.
+2. If the maximum index is in the first half of stack_b, rotate stack_b until the maximum index is at the top, then push it to stack_a.
+3. If the maximum index is in the second half of stack_b, reverse rotate stack_b until the maximum index is at the top, then push it to stack_a.
+4. Repeat until all elements are moved from stack_b to stack_a. */
 void	btoa_max(t_node **head_a, t_node **head_b)
 {
 	int	pos_max_index;

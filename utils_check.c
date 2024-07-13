@@ -6,7 +6,7 @@
 /*   By: tmurua <tmurua@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 17:23:43 by tmurua            #+#    #+#             */
-/*   Updated: 2024/06/20 19:43:49 by tmurua           ###   ########.fr       */
+/*   Updated: 2024/07/12 18:51:57 by tmurua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,13 @@ void	perform_checks(t_node *stack_a, int ac, char **av)
 	}
 }
 
-/* Checks for duplicate numbers in the linked list. */
+/* Checks for duplicate numbers in the linked list.
+1. Traverse the linked list using the head node: while (head->next)
+2. For each node, clone the current node using tmp: tmp = head;
+3. Move tmp to the next node: tmp = tmp->next;
+4. Compare the nbr value of tmp with the nbr value of head (next with current).
+5. If a duplicate is found, return 1 (true).
+6. If no duplicates are found after traversing the list, return 0 (false). */
 int	has_duplicates(t_node *head)
 {
 	t_node	*tmp;
@@ -56,7 +62,11 @@ int	has_duplicates(t_node *head)
 }
 
 /* Checks if the size of the linked list is within limits.
-This is necessary to assign correct indexes with the assign_index function. */
+This is necessary to assign correct indexes with the assign_index function.
+1. Initialize size to 0.
+2. Traverse the linked list, incrementing size.
+3. If size equals INT_MAX, return 1 (true).
+4. If the list is traversed without reaching INT_MAX, return 0 (false). */
 int	is_too_big(t_node *head)
 {
 	int	size;
@@ -72,7 +82,13 @@ int	is_too_big(t_node *head)
 	return (0);
 }
 
-/* Checks if the numbers in the linked list are in sorted order. */
+/* Checks if the numbers in the linked list are in sorted order.
+1. Traverse the linked list using the head node: while (head->next)
+2. For each node, clone the current node using tmp: tmp = head;
+3. Move tmp to the next node: tmp = tmp->next;
+4. Compare the nbr value of tmp with the nbr value of head.
+5. If tmp (next nbr) is smaller then head (current nbr), return 0 (false).
+6. If the list is traversed without finding smaller values, return 1 (true). */
 int	is_sorted(t_node *head)
 {
 	t_node	*tmp;

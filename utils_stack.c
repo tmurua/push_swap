@@ -6,7 +6,7 @@
 /*   By: tmurua <tmurua@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 17:24:07 by tmurua            #+#    #+#             */
-/*   Updated: 2024/06/21 02:48:37 by tmurua           ###   ########.fr       */
+/*   Updated: 2024/06/23 23:24:47 by tmurua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ t_node	*last_node(t_node *stack)
 /*	1. Initialize size to 0.
 	2. Traverse the linked list from head to end.
 	3. Increment size for each node encountered.
-	4. Return the size of the linked list. */
+	4. Return the size, i.e. number of nodes, of the linked list. */
 int	stack_size(t_node *head)
 {
 	int	size;

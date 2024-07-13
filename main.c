@@ -6,14 +6,14 @@
 /*   By: tmurua <tmurua@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 17:21:45 by tmurua            #+#    #+#             */
-/*   Updated: 2024/06/21 01:54:32 by tmurua           ###   ########.fr       */
+/*   Updated: 2024/07/01 15:30:54 by tmurua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 /*
-1. Take *av[] as arguments
+1. Take *av[] as arguments. i used as the index for each av[]
 2. Create linked list stack_a as t_node (structure in push_swap.h file)
 3. Handle case with no arguments: if (ac == 1)
 4. Handle single argument with ft_split: if (ac == 2)

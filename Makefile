@@ -5,7 +5,7 @@ LIBDIR	=	./libft/
 CC		=	cc
 FLAGS	=	-Wall -Wextra -Werror
 
-SRCS	=	main.c			utils_free.c	util_atoi.c	utils_stack.c	utils_check.c\
+SRCS	=	main.c			utils_free.c	utils_args.c	utils_stack.c	utils_check.c\
 			pick_sort.c		sort_small.c	sort_big.c\
 			ops_push.c		ops_rotate.c	ops_reverse_rotate.c		ops_swap.c
 

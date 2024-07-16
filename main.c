@@ -6,7 +6,7 @@
 /*   By: tmurua <tmurua@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 17:21:45 by tmurua            #+#    #+#             */
-/*   Updated: 2024/07/01 15:30:54 by tmurua           ###   ########.fr       */
+/*   Updated: 2024/07/16 18:59:49 by tmurua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /*
 1. Take *av[] as arguments. i used as the index for each av[]
 2. Create linked list stack_a as t_node (structure in push_swap.h file)
-3. Handle case with no arguments: if (ac == 1)
+3. Handle case with no arguments: if (ac == 1) and edge cases
 4. Handle single argument with ft_split: if (ac == 2)
 	- Split the single argument into an array of arguments
 	- Handle the case where splitting fails
@@ -33,8 +33,8 @@ int	main(int ac, char **av)
 
 	i = 1;
 	stack_a = NULL;
-	if (ac == 1)
-		return (0);
+	if (ac == 1 || (ac == 2 && handle_edge_cases(av[1])))
+		return (1);
 	if (ac == 2)
 	{
 		av = ft_split(av[1], ' ');

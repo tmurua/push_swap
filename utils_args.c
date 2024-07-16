@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   util_atoi.c                                        :+:      :+:    :+:   */
+/*   utils_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmurua <tmurua@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 17:23:27 by tmurua            #+#    #+#             */
-/*   Updated: 2024/06/21 01:57:25 by tmurua           ###   ########.fr       */
+/*   Updated: 2024/07/16 19:09:18 by tmurua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,30 @@ int	custom_atoi(const char *s, t_node *stack_a, int ac, char **av)
 	if ((sign * number < INT_MIN) || (sign * number > INT_MAX))
 		free_error_exit(stack_a, ac, av);
 	return (sign * number);
+}
+
+/* Handle edge cases for input validation
+1. If the input string is empty, print "Error" and return 1.
+2. Traverse the input string
+	- For each character, check if it is not a whitespace character
+	- If a non-whitespace character is found, return 0
+3. If only whitespace chars were found, print "Error" and return 1 */
+int	handle_edge_cases(const char *str)
+{
+	int	i;
+
+	i = 0;
+	if (ft_strlen(str) == 0)
+	{
+		write(2, "Error\n", 6);
+		return (1);
+	}
+	while (str[i])
+	{
+		if (!(str[i] == ' ' || (str[i] >= '\t' && str[i] <= '\r')))
+			return (0);
+		i++;
+	}
+	write(2, "Error\n", 6);
+	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: tmurua <tmurua@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 17:23:09 by tmurua            #+#    #+#             */
-/*   Updated: 2024/07/13 03:24:45 by tmurua           ###   ########.fr       */
+/*   Updated: 2024/07/16 17:25:31 by tmurua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,10 +87,12 @@ void	atob_interval(t_node **head_a, t_node **head_b)
 	}
 }
 
-/* Move elements from stack_b back to stack_a in sorted order.
+/* Move elements from stack_b back to stack_a in sorted order
 1. Find the position of the maximum index in stack_b.
-2. If the maximum index is in the first half of stack_b, rotate stack_b until the maximum index is at the top, then push it to stack_a.
-3. If the maximum index is in the second half of stack_b, reverse rotate stack_b until the maximum index is at the top, then push it to stack_a.
+2. If max index is in 1st half of stack_b, rotate stack_b
+until the maximum index is at the top, then push it to stack_a.
+3. If max index is in 2nd half of stack_b, reverse rotate stack_b
+until the maximum index is at the top, then push it to stack_a.
 4. Repeat until all elements are moved from stack_b to stack_a. */
 void	btoa_max(t_node **head_a, t_node **head_b)
 {

@@ -6,7 +6,7 @@
 /*   By: tmurua <tmurua@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 17:22:59 by tmurua            #+#    #+#             */
-/*   Updated: 2024/06/20 19:26:15 by tmurua           ###   ########.fr       */
+/*   Updated: 2024/07/16 18:58:32 by tmurua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,10 @@ typedef struct s_node
 void				free_lst(t_node *head);
 int					free_all(t_node *stack_a, int ac, char **av);
 
-/*	util_atoi.c	*/
+/*	utils_args.c	*/
 int					custom_atoi(const char *s, t_node *stack_a, int ac,
 						char **av);
+int					handle_edge_cases(const char *str);
 
 /*	utils_stack.c	*/
 t_node				*add_node(t_node *head, int nbr);

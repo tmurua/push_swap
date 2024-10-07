@@ -5,7 +5,7 @@ CFLAGS = -Wall -Wextra -Werror -g
 
 LIBFT = ./libft/libft.a
 
-SRC = main.c
+SRC = main.c input_handler.c
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)

@@ -1,44 +1,6 @@
 # push_swap
 
-## push_swap.h
-#ifndef PUSH_SWAP_H
-'# define PUSH_SWAP_H
 
-'# include <unistd.h>
-'# include <stdlib.h>
-'# include "/libft/libft.h"
-
-/* macros*/
-
-
-/* structures */
-typedef	struct s_stack_a
-{
-	int		element_value_a;
-	int		element_index_a;
-	struct	*next_a;
-	struct	*previous_a;
-}	t_stack_a
-
-typedef	struct s_stack_b
-{
-	int		element_value_b;
-	int		element_index_b;
-	struct	*next_b;
-	struct	*previous_b;
-}	t_stack_b
-
-
-/* function prototypes */
-/* main.c */
-int		handle_input(int argc, char **argv, t_stack_a stack_a);
-void	try_input_again();
-void	wrong_input(void);
-
-/* sorting_operations.c */
-
-
-#endif
 
 ---
 
@@ -75,11 +37,7 @@ if stack_a has elements > integer
 }
 
 ### wrong_input()
-void	wrong_input(void)
-{
-	ft_printf("Error\n");
-	exit(EXIT_FAILURE);
-}
+
 ---
 ## sorting_algorithm.c
 1. Research which algorithm or algorithms would be best (easy to read, easy to write, sorts number within limits, i.e. sort 100 random numbers in fewer than 700 operations)

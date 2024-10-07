@@ -6,7 +6,7 @@
 /*   By: tmurua <tmurua@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 09:06:02 by tmurua            #+#    #+#             */
-/*   Updated: 2024/10/07 11:23:39 by tmurua           ###   ########.fr       */
+/*   Updated: 2024/10/07 18:49:06 by tmurua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@
 /* structures */
 typedef struct s_element
 {
-	int			value;
-	int			index;
-	t_element	*next;
-	t_element	*previous;
+	int					value;
+	int					index;
+	struct s_element	*next;
+	struct s_element	*previous;
 }	t_element;
 
 typedef struct s_stack
@@ -38,11 +38,16 @@ typedef struct s_stack
 
 
 /* function prototypes */
-/* main.c */
+/* input_handler.c */
 int		handle_input(int argc, char **argv, t_stack *stack);
+void	free_split(char **argv);
+int		validate_input(int argc, char **argv, t_stack *stack_a);
 void	wrong_input(void);
 
-/* sorting_operations.c */
+/* sorting_operations_stack_a.c */
 
+/* sorting_operations_stack_b.c */
+
+/* sorting_operations_both_stacks.c */
 
 #endif

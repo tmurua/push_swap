@@ -6,7 +6,7 @@
 /*   By: tmurua <tmurua@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 09:06:02 by tmurua            #+#    #+#             */
-/*   Updated: 2024/10/07 18:49:06 by tmurua           ###   ########.fr       */
+/*   Updated: 2024/10/08 13:10:29 by tmurua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,15 @@ typedef struct s_stack
 /* input_handler.c */
 int		handle_input(int argc, char **argv, t_stack *stack);
 void	free_split(char **argv);
-int		validate_input(int argc, char **argv, t_stack *stack_a);
+int		count_elements(char **argv);
 void	wrong_input(void);
+
+/* input_validation.c */
+int		validate_input(int argc, char **argv, t_stack *stack_a);
+int		check_non_integer_input(int argc, char **argv);
+int		check_underflow_overflow(int argc, char **argv);
+int		check_duplicates(int argc, char **argv);
+void	populate_stack_a(int argc, char **argv, t_stack *stack_a);
 
 /* sorting_operations_stack_a.c */
 

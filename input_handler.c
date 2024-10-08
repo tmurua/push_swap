@@ -6,7 +6,7 @@
 /*   By: tmurua <tmurua@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 18:22:44 by tmurua            #+#    #+#             */
-/*   Updated: 2024/10/07 19:20:17 by tmurua           ###   ########.fr       */
+/*   Updated: 2024/10/08 12:54:15 by tmurua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,13 +52,6 @@ int	count_elements(char **argv)
 	while (argv[new_argc])
 		new_argc++;
 	return (new_argc);
-}
-int	validate_input(int argc, char **argv, t_stack *stack_a)
-{
-	//check for non-integer inputs
-	//check for input below INT_MIN and above INT_MAX
-	//check for duplicates
-	//populate_stack_a();
 }
 
 void	wrong_input(void)

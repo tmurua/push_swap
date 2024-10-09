@@ -6,7 +6,7 @@
 /*   By: tmurua <tmurua@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 12:52:53 by tmurua            #+#    #+#             */
-/*   Updated: 2024/10/08 23:51:47 by tmurua           ###   ########.fr       */
+/*   Updated: 2024/10/09 09:55:48 by tmurua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ int	validate_input(int argc, char **argv, t_stack *stack_a)
 	(void) argc;
 	(void) argv;
 	//check_underflow_overflow(argc, argv);
-	//check_duplicates(argc, argv);
 	//populate_stack_a(argc, argv, *stack_a);
 	//call wrong_input if any of the above fails
 	return (0);
@@ -44,18 +43,46 @@ int	check_non_integer_input(char **argv)
 	}
 	return (0);
 }
+
+int	check_duplicates(char **argv)
+{
+	int	i;
+	int	y;
+
+	i = 0;
+	while (argv[i])
+	{
+		y = i + 1;
+		while (argv[y])
+		{
+			if (!ft_strncmp(argv[i], argv[y], ft_strlen(argv[i])))
+				return (1);
+			y++;
+		}
+		i++;
+	}
+	return (0);
+}
+
+/* this function needs to user integers instead of strings
+int	check_underflow_overflow(char **argv)
+{
+	int	i;
+	int	y;
+
+	i = 0;
+	while (argv[i])
+	{
+		if (argv[i][y] >= '-2147483648' && argv[i][y] <= '2147483647')
+			while (argv[i][y] >= '-2147483648' && argv[i][y] <= '2147483647')
+				y++;
+		else
+			return (1);
+		i++;
+	}
+	return (0);
+} */
 /*
-int	check_underflow_overflow(int argc, char **argv)
-{
-	//check for input below INT_MIN and above INT_MAX
-	// return 0 for success and 1 for failure
-}
-
-int	check_duplicates(int argc, char **argv)
-{
-	// return 0 for success and 1 for failure
-}
-
 void	populate_stack_a(int argc, char **argv, t_stack *stack_a)
 {
 

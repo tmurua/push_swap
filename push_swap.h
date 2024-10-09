@@ -6,7 +6,7 @@
 /*   By: tmurua <tmurua@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 09:06:02 by tmurua            #+#    #+#             */
-/*   Updated: 2024/10/08 23:23:21 by tmurua           ###   ########.fr       */
+/*   Updated: 2024/10/09 09:22:22 by tmurua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ void	wrong_input(void);
 /* input_validation.c */
 int		validate_input(int argc, char **argv, t_stack *stack_a);
 int		check_non_integer_input(char **argv);
-int		check_underflow_overflow(int argc, char **argv);
-int		check_duplicates(int argc, char **argv);
+int		check_underflow_overflow(char **argv);
+int		check_duplicates(char **argv);
 void	populate_stack_a(int argc, char **argv, t_stack *stack_a);
 
 /* sorting_operations_stack_a.c */

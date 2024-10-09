@@ -6,7 +6,7 @@
 /*   By: tmurua <tmurua@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 18:22:44 by tmurua            #+#    #+#             */
-/*   Updated: 2024/10/09 09:55:06 by tmurua           ###   ########.fr       */
+/*   Updated: 2024/10/09 11:09:10 by tmurua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ int	handle_input(int argc, char **argv, t_stack *stack_a)
 	{
 		argv = argv + 1;
 		argc = argc - 1;
-		if (check_non_integer_input(argv) == 1 || check_duplicates(argv) == 1)
+		if (check_non_integer_input(argv) == 1 || check_duplicates(argv) == 1
+			|| check_underflow_overflow(argv) == 1)
 			wrong_input();
 		validate_input(argc, argv, stack_a);
 	}
@@ -36,7 +37,8 @@ void	handle_two_arguments(int argc, char **argv, t_stack *stack_a)
 {
 	argv = ft_split(argv[1], ' ');
 	argc = count_elements(argv);
-	if (check_non_integer_input(argv) == 1 || check_duplicates(argv) == 1)
+	if (check_non_integer_input(argv) == 1 || check_duplicates(argv) == 1
+		|| check_underflow_overflow(argv) == 1)
 	{
 		free_split(argv);
 		wrong_input();

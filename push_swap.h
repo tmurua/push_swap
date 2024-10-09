@@ -6,7 +6,7 @@
 /*   By: tmurua <tmurua@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 09:06:02 by tmurua            #+#    #+#             */
-/*   Updated: 2024/10/09 09:22:22 by tmurua           ###   ########.fr       */
+/*   Updated: 2024/10/09 11:01:47 by tmurua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 # include <stdlib.h>
 
 /* macros*/
-
+# define INT_MIN -2147483648
+# define INT_MAX 2147483647
 
 /* structures */
 typedef struct s_element

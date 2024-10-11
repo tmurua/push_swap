@@ -6,7 +6,7 @@
 /*   By: tmurua <tmurua@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 18:22:44 by tmurua            #+#    #+#             */
-/*   Updated: 2024/10/09 11:09:10 by tmurua           ###   ########.fr       */
+/*   Updated: 2024/10/11 15:47:07 by tmurua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	handle_input(int argc, char **argv, t_stack *stack_a)
 {
-	stack_a->top = NULL;
-	stack_a->bottom = NULL;
+	stack_a->first = NULL;
+	stack_a->last = NULL;
 	stack_a->size = 0;
 	if (argc == 1)
 		return (1);
@@ -27,8 +27,8 @@ int	handle_input(int argc, char **argv, t_stack *stack_a)
 		argc = argc - 1;
 		if (check_non_integer_input(argv) == 1 || check_duplicates(argv) == 1
 			|| check_underflow_overflow(argv) == 1)
-			wrong_input();
-		validate_input(argc, argv, stack_a);
+			wrong_input(stack_a);
+		populate_stack_a(argc, argv, stack_a);
 	}
 	return (0);
 }
@@ -41,9 +41,9 @@ void	handle_two_arguments(int argc, char **argv, t_stack *stack_a)
 		|| check_underflow_overflow(argv) == 1)
 	{
 		free_split(argv);
-		wrong_input();
+		wrong_input(stack_a);
 	}
-	validate_input(argc, argv, stack_a);
+	populate_stack_a(argc, argv, stack_a);
 	free_split(argv);
 }
 
@@ -70,8 +70,10 @@ int	count_elements(char **argv)
 	return (new_argc);
 }
 
-void	wrong_input(void)
+void	wrong_input(t_stack *stack_a)
 {
+	if (stack_a)
+		free_stack(stack_a);
 	ft_putendl_fd("Error\n", 2);
 	exit(EXIT_FAILURE);
 }

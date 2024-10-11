@@ -5,7 +5,7 @@ CFLAGS = -Wall -Wextra -Werror -g
 
 LIBFT = ./libft/libft.a
 
-SRC = main.c input_handler.c input_validation.c
+SRC = main.c input_handler.c input_validation.c sorting_operation_swap.c
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)

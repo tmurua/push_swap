@@ -6,7 +6,7 @@
 /*   By: tmurua <tmurua@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 12:52:53 by tmurua            #+#    #+#             */
-/*   Updated: 2024/10/09 11:10:37 by tmurua           ###   ########.fr       */
+/*   Updated: 2024/10/11 15:47:04 by tmurua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,20 +55,53 @@ int	check_duplicates(char **argv)
 
 int	check_underflow_overflow(char **argv)
 {
-	int	i;
+	int		i;
+	long	current_argv;
 
 	i = 0;
 	while (argv[i])
 	{
-		if (ft_atoi(argv[i]) < INT_MIN || ft_atoi(argv[i]) > INT_MAX)
+		current_argv = ft_atoi(argv[i]);
+		if (current_argv < INT_MIN || current_argv > INT_MAX)
 			return (1);
 		i++;
 	}
 	return (0);
 }
-/*
+
 void	populate_stack_a(int argc, char **argv, t_stack *stack_a)
 {
+	t_node	*next_node;
+	t_node	*previous_node;
+	int		i;
 
+	i = 0;
+	previous_node = NULL;
+	while (argv[i])
+	{
+		next_node = create_node(ft_atoi(argv[i]), i, stack_a);
+		next_node->previous = previous_node;
+		if (previous_node)
+			previous_node->next = next_node;
+		else
+			stack_a->first = next_node;
+		previous_node = next_node;
+		i++;
+	}
+	stack_a->last = previous_node;
+	stack_a->size = argc;
 }
-*/
+
+t_node	*create_node(int value, int index, t_stack *stack_a)
+{
+	t_node	*node;
+
+	node = malloc(sizeof(t_node));
+	if (!node)
+		wrong_input(stack_a);
+	node->value = value;
+	node->index = index;
+	node->next = NULL;
+	node->previous = NULL;
+	return (node);
+}

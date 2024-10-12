@@ -6,14 +6,14 @@
 /*   By: tmurua <tmurua@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 20:48:05 by tmurua            #+#    #+#             */
-/*   Updated: 2024/10/11 20:12:21 by tmurua           ###   ########.fr       */
+/*   Updated: 2024/10/12 11:23:07 by tmurua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 /*	check if there are at least 2 nodes to swap, then call helper ft
-	updates the stack's last pointer if necessary.*/
+	updates the stack's last pointer if necessary */
 void	swap(t_stack *stack)
 {
 	if (stack->size < 2)
@@ -23,7 +23,7 @@ void	swap(t_stack *stack)
 		stack->last = stack->first->next;
 }
 
-/*	Updates the stack->first pointer and adjusts links between the nodes
+/*	updates the stack->first pointer and adjusts links between the nodes
 	if there's a third node, it also adjusts it's node->previous pointer */
 void	swap_first_two_nodes(t_stack *stack, t_node *og_first, t_node *second)
 {

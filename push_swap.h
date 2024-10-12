@@ -6,7 +6,7 @@
 /*   By: tmurua <tmurua@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 09:06:02 by tmurua            #+#    #+#             */
-/*   Updated: 2024/10/12 12:10:28 by tmurua           ###   ########.fr       */
+/*   Updated: 2024/10/12 23:09:12 by tmurua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,5 +78,10 @@ void	reverse_rotate_b_rrb(t_stack *stack_b);
 void	reverse_rotate_rotate_rrr(t_stack *stack_a, t_stack *stack_b);
 
 /* sorting_operation_push.c */
+void	push(t_stack *stack_src, t_stack *stack_dst);
+t_node	*remove_node_src(t_stack *src, t_node *node_to_move);
+void	insert_node_dst(t_stack *dst, t_node *node_to_move);
+void	push_to_a_pa(t_stack *stack_b, t_stack *stack_a);
+void	push_to_b_pb(t_stack *stack_a, t_stack *stack_b);
 
 #endif

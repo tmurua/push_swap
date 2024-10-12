@@ -6,7 +6,7 @@
 /*   By: tmurua <tmurua@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 09:06:02 by tmurua            #+#    #+#             */
-/*   Updated: 2024/10/12 23:09:12 by tmurua           ###   ########.fr       */
+/*   Updated: 2024/10/12 23:53:14 by tmurua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,12 @@ typedef struct s_stack
 
 /* function prototypes */
 /* main */
+void	initialize_stack(t_stack *stack);
 void	free_stack(t_stack *stack);
-void	printing_tests(t_stack *stack_a);
+void	printing_tests(t_stack *stack);
 
 /* input_handler.c */
-int		handle_input(int argc, char **argv, t_stack *stack_a);
+void	handle_input(int argc, char **argv, t_stack *stack_a);
 void	handle_two_arguments(int argc, char **argv, t_stack *stack_a);
 void	free_split(char **argv);
 int		count_elements(char **argv);

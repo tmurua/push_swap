@@ -6,7 +6,7 @@
 /*   By: tmurua <tmurua@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 09:23:21 by tmurua            #+#    #+#             */
-/*   Updated: 2024/10/12 11:33:16 by tmurua           ###   ########.fr       */
+/*   Updated: 2024/10/12 23:33:22 by tmurua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,29 +15,38 @@
 int	main(int argc, char **argv)
 {
 	t_stack	stack_a;
+	t_stack	stack_b;
 
+	initialize_stack(&stack_a);
+	initialize_stack(&stack_b);
 	handle_input(argc, argv, &stack_a);
-	printing_tests(&stack_a);
 	free_stack(&stack_a);
+	free_stack(&stack_b);
 }
 
-void	free_stack(t_stack *stack_a)
+void	initialize_stack(t_stack *stack)
+{
+	stack->first = NULL;
+	stack->last = NULL;
+	stack->size = 0;
+}
+
+void	free_stack(t_stack *stack)
 {
 	t_node	*current_node;
 	t_node	*next_node;
 
-	current_node = stack_a->first;
+	current_node = stack->first;
 	while (current_node != NULL)
 	{
 		next_node = current_node->next;
 		free(current_node);
 		current_node = next_node;
 	}
-	stack_a->first = NULL;
-	stack_a->last = NULL;
-	stack_a->size = 0;
+	initialize_stack(stack);
 }
 
+/*
 void	printing_tests(t_stack *stack_a)
 {
 	if (stack_a->first && stack_a->last && stack_a->size)
@@ -56,3 +65,4 @@ void	printing_tests(t_stack *stack_a)
 	else
 		ft_printf("stack_a is empty.\n");
 }
+*/

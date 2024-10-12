@@ -6,19 +6,16 @@
 /*   By: tmurua <tmurua@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 18:22:44 by tmurua            #+#    #+#             */
-/*   Updated: 2024/10/11 15:47:07 by tmurua           ###   ########.fr       */
+/*   Updated: 2024/10/12 23:53:02 by tmurua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	handle_input(int argc, char **argv, t_stack *stack_a)
+void	handle_input(int argc, char **argv, t_stack *stack_a)
 {
-	stack_a->first = NULL;
-	stack_a->last = NULL;
-	stack_a->size = 0;
 	if (argc == 1)
-		return (1);
+		return ;
 	if (argc == 2)
 		handle_two_arguments(argc, argv, stack_a);
 	if (argc > 2)
@@ -30,7 +27,6 @@ int	handle_input(int argc, char **argv, t_stack *stack_a)
 			wrong_input(stack_a);
 		populate_stack_a(argc, argv, stack_a);
 	}
-	return (0);
 }
 
 void	handle_two_arguments(int argc, char **argv, t_stack *stack_a)

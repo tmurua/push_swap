@@ -6,7 +6,7 @@
 /*   By: tmurua <tmurua@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 09:06:02 by tmurua            #+#    #+#             */
-/*   Updated: 2024/10/12 10:39:38 by tmurua           ###   ########.fr       */
+/*   Updated: 2024/10/12 12:10:28 by tmurua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,16 @@ void	swap_swap_ss(t_stack *stack_a, t_stack *stack_b);
 /* sorting_operation_rotate.c */
 void	rotate(t_stack *stack);
 void	rotate_first_to_last(t_stack *stack, t_node *og_first, t_node *og_last);
+void	rotate_a_ra(t_stack *stack_a);
+void	rotate_b_rb(t_stack *stack_b);
+void	rotate_rotate_rr(t_stack *stack_a, t_stack *stack_b);
+
 /* sorting_operation_reverse_rotate.c */
+void	reverse_rotate(t_stack *stack);
+void	revers_last_to_first(t_stack *stack, t_node *og_last, t_node *og_first);
+void	reverse_rotate_a_rra(t_stack *stack_a);
+void	reverse_rotate_b_rrb(t_stack *stack_b);
+void	reverse_rotate_rotate_rrr(t_stack *stack_a, t_stack *stack_b);
 
 /* sorting_operation_push.c */
 

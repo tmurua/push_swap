@@ -6,7 +6,7 @@
 /*   By: tmurua <tmurua@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 11:39:13 by tmurua            #+#    #+#             */
-/*   Updated: 2024/10/12 12:35:59 by tmurua           ###   ########.fr       */
+/*   Updated: 2024/10/13 23:11:32 by tmurua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	reverse_rotate(t_stack *stack)
 void	revers_last_to_first(t_stack *stack, t_node *og_last, t_node *og_first)
 {
 	stack->last = og_last->previous;
+	stack->last->next = NULL;
 	og_first->previous = og_last;
 	og_last->next = og_first;
 	og_last->previous = NULL;

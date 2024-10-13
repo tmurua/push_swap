@@ -6,7 +6,7 @@
 /*   By: tmurua <tmurua@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 09:06:02 by tmurua            #+#    #+#             */
-/*   Updated: 2024/10/13 21:26:29 by tmurua           ###   ########.fr       */
+/*   Updated: 2024/10/13 23:06:58 by tmurua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,9 @@ void	push_to_b_pb(t_stack *stack_a, t_stack *stack_b);
 
 /* turk_sort_algorithm.c */
 void	turk_sort(t_stack *stack_a, t_stack *stack_b);
-
+void	push_all_nodes_to_b(t_stack *stack_a, t_stack *stack_b);
+void	push_all_nodes_to_a(t_stack *stack_b, t_stack *stack_a);
+int		find_position_of_smallest_node(t_stack *stack_a);
+void	move_smallest_node_to_top(t_stack *stack_a, int smallest_node_position);
 
 #endif

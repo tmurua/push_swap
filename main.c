@@ -6,7 +6,7 @@
 /*   By: tmurua <tmurua@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 09:23:21 by tmurua            #+#    #+#             */
-/*   Updated: 2024/10/12 23:33:22 by tmurua           ###   ########.fr       */
+/*   Updated: 2024/10/13 22:37:49 by tmurua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int	main(int argc, char **argv)
 	initialize_stack(&stack_a);
 	initialize_stack(&stack_b);
 	handle_input(argc, argv, &stack_a);
+	turk_sort(&stack_a, &stack_b);
 	free_stack(&stack_a);
 	free_stack(&stack_b);
 }

@@ -6,7 +6,7 @@
 /*   By: tmurua <tmurua@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 09:06:02 by tmurua            #+#    #+#             */
-/*   Updated: 2024/10/12 23:53:14 by tmurua           ###   ########.fr       */
+/*   Updated: 2024/10/13 21:26:29 by tmurua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@
 typedef struct s_node
 {
 	int				value;
-	int				index;
 	struct s_node	*next;
 	struct s_node	*previous;
 }	t_node;
@@ -55,7 +54,7 @@ int		check_non_integer_input(char **argv);
 int		check_underflow_overflow(char **argv);
 int		check_duplicates(char **argv);
 void	populate_stack_a(int argc, char **argv, t_stack *stack_a);
-t_node	*create_node(int value, int index, t_stack *stack_a);
+t_node	*create_node(int value, t_stack *stack_a);
 
 /* sorting_operation_swap.c */
 void	swap(t_stack *stack);
@@ -84,5 +83,9 @@ t_node	*remove_node_src(t_stack *src, t_node *node_to_move);
 void	insert_node_dst(t_stack *dst, t_node *node_to_move);
 void	push_to_a_pa(t_stack *stack_b, t_stack *stack_a);
 void	push_to_b_pb(t_stack *stack_a, t_stack *stack_b);
+
+/* turk_sort_algorithm.c */
+void	turk_sort(t_stack *stack_a, t_stack *stack_b);
+
 
 #endif

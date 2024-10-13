@@ -7,7 +7,8 @@ LIBFT = ./libft/libft.a
 
 SRC =	main.c	input_handler.c		input_validation.c	\
 		sorting_operation_swap.c	sorting_operation_rotate.c	\
-		sorting_operation_reverse_rotate.c	sorting_operation_push.c
+		sorting_operation_reverse_rotate.c	sorting_operation_push.c \
+		turk_sort_algorithm.c
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)

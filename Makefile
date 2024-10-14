@@ -5,11 +5,11 @@ CFLAGS = -Wall -Wextra -Werror -g
 
 LIBFT = ./libft/libft.a
 
-SRC =	main.c	input_handler.c		input_validation.c	\
+SRC =	main.c			input_handler.c		input_validation.c	\
 		initialize_and_fill_stacks.c	\
-		sorting_operation_swap.c	sorting_operation_rotate.c	\
+		sorting_operation_swap.c			sorting_operation_rotate.c	\
 		sorting_operation_reverse_rotate.c	sorting_operation_push.c \
-		turk_sort_algorithm.c
+		turk_sort_algorithm.c				small_stack_sorting_algorithms.c
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)

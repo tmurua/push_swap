@@ -6,7 +6,7 @@
 /*   By: tmurua <tmurua@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 09:06:02 by tmurua            #+#    #+#             */
-/*   Updated: 2024/10/14 10:38:30 by tmurua           ###   ########.fr       */
+/*   Updated: 2024/10/14 11:48:10 by tmurua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ int		check_non_integer_input(char **argv);
 int		check_underflow_overflow(char **argv);
 int		check_duplicates(char **argv);
 int		check_if_stack_a_is_sorted(t_stack *stack_a);
+void	check_which_algorithm_to_use(t_stack *stack_a, t_stack *stack_b);
 
 /* initialize_and_fill_stacks.c */
 void	initialize_stack(t_stack *stack);
@@ -93,5 +94,11 @@ void	push_all_nodes_to_b(t_stack *stack_a, t_stack *stack_b);
 void	push_all_nodes_to_a(t_stack *stack_b, t_stack *stack_a);
 int		find_position_of_smallest_node(t_stack *stack_a);
 void	move_smallest_node_to_top(t_stack *stack_a, int smallest_node_position);
+
+/* small_stack_sorting_algorithms.c */
+void	sort_stack_with_3_nodes(t_stack *stack_a);
+void	sort_stack_with_4_nodes(t_stack *stack_a, t_stack *stack_b);
+void	sort_stack_with_5_nodes(t_stack *stack_a, t_stack *stack_b);
+
 
 #endif

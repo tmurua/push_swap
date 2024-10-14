@@ -6,7 +6,7 @@
 /*   By: tmurua <tmurua@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 12:52:53 by tmurua            #+#    #+#             */
-/*   Updated: 2024/10/14 15:08:26 by tmurua           ###   ########.fr       */
+/*   Updated: 2024/10/14 18:43:49 by tmurua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int	check_underflow_overflow(char **argv)
 	i = 0;
 	while (argv[i])
 	{
-		current_argv = ft_atoi(argv[i]);
+		current_argv = ft_atol(argv[i]);
 		if (current_argv < INT_MIN || current_argv > INT_MAX)
 			return (1);
 		i++;

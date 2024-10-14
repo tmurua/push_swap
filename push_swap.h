@@ -6,7 +6,7 @@
 /*   By: tmurua <tmurua@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 09:06:02 by tmurua            #+#    #+#             */
-/*   Updated: 2024/10/14 13:54:35 by tmurua           ###   ########.fr       */
+/*   Updated: 2024/10/14 20:45:38 by tmurua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,6 @@ typedef struct s_stack
 }	t_stack;
 
 /* function prototypes */
-/* main */
-void	printing_tests(t_stack *stack);
-
 /* input_handler.c */
 void	handle_input(int argc, char **argv, t_stack *stack_a);
 void	handle_two_arguments(int argc, char **argv, t_stack *stack_a);
@@ -90,14 +87,12 @@ void	push_to_b_pb(t_stack *stack_a, t_stack *stack_b);
 
 /* turk_sort_algorithm.c */
 void	turk_sort(t_stack *stack_a, t_stack *stack_b);
-void	push_all_nodes_to_b(t_stack *stack_a, t_stack *stack_b);
-void	push_all_nodes_to_a(t_stack *stack_b, t_stack *stack_a);
-int		find_position_of_smallest_node(t_stack *stack_a);
-void	move_smallest_node_to_top(t_stack *stack_a, int smallest_node_position);
 
 /* small_stack_sorting_algorithms.c */
 void	sort_stack_with_3_nodes(t_stack *stack_a);
 void	sort_stack_with_4_nodes(t_stack *stack_a, t_stack *stack_b);
 void	sort_stack_with_5_nodes(t_stack *stack_a, t_stack *stack_b);
+int		find_position_of_smallest_node(t_stack *stack_a);
+void	move_smallest_node_to_top(t_stack *stack_a, int smallest_node_position);
 
 #endif

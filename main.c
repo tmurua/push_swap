@@ -6,7 +6,7 @@
 /*   By: tmurua <tmurua@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 09:23:21 by tmurua            #+#    #+#             */
-/*   Updated: 2024/10/13 22:37:49 by tmurua           ###   ########.fr       */
+/*   Updated: 2024/10/14 10:32:30 by tmurua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,28 +23,6 @@ int	main(int argc, char **argv)
 	turk_sort(&stack_a, &stack_b);
 	free_stack(&stack_a);
 	free_stack(&stack_b);
-}
-
-void	initialize_stack(t_stack *stack)
-{
-	stack->first = NULL;
-	stack->last = NULL;
-	stack->size = 0;
-}
-
-void	free_stack(t_stack *stack)
-{
-	t_node	*current_node;
-	t_node	*next_node;
-
-	current_node = stack->first;
-	while (current_node != NULL)
-	{
-		next_node = current_node->next;
-		free(current_node);
-		current_node = next_node;
-	}
-	initialize_stack(stack);
 }
 
 /*

@@ -6,7 +6,7 @@
 /*   By: tmurua <tmurua@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 09:06:02 by tmurua            #+#    #+#             */
-/*   Updated: 2024/10/13 23:06:58 by tmurua           ###   ########.fr       */
+/*   Updated: 2024/10/14 10:38:30 by tmurua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,6 @@ typedef struct s_stack
 
 /* function prototypes */
 /* main */
-void	initialize_stack(t_stack *stack);
-void	free_stack(t_stack *stack);
 void	printing_tests(t_stack *stack);
 
 /* input_handler.c */
@@ -53,8 +51,13 @@ void	wrong_input(t_stack *stack_a);
 int		check_non_integer_input(char **argv);
 int		check_underflow_overflow(char **argv);
 int		check_duplicates(char **argv);
+int		check_if_stack_a_is_sorted(t_stack *stack_a);
+
+/* initialize_and_fill_stacks.c */
+void	initialize_stack(t_stack *stack);
 void	populate_stack_a(int argc, char **argv, t_stack *stack_a);
 t_node	*create_node(int value, t_stack *stack_a);
+void	free_stack(t_stack *stack);
 
 /* sorting_operation_swap.c */
 void	swap(t_stack *stack);

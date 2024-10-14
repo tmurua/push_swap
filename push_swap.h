@@ -6,7 +6,7 @@
 /*   By: tmurua <tmurua@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 09:06:02 by tmurua            #+#    #+#             */
-/*   Updated: 2024/10/14 11:48:10 by tmurua           ###   ########.fr       */
+/*   Updated: 2024/10/14 13:54:35 by tmurua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,5 @@ void	move_smallest_node_to_top(t_stack *stack_a, int smallest_node_position);
 void	sort_stack_with_3_nodes(t_stack *stack_a);
 void	sort_stack_with_4_nodes(t_stack *stack_a, t_stack *stack_b);
 void	sort_stack_with_5_nodes(t_stack *stack_a, t_stack *stack_b);
-
 
 #endif

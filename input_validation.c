@@ -6,7 +6,7 @@
 /*   By: tmurua <tmurua@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 12:52:53 by tmurua            #+#    #+#             */
-/*   Updated: 2024/10/14 13:11:50 by tmurua           ###   ########.fr       */
+/*   Updated: 2024/10/14 15:08:26 by tmurua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ int	check_non_integer_input(char **argv)
 				y++;
 		else
 			return (1);
+		if (argv[i][y] != '\0')
+			return (1);
 		i++;
 	}
 	return (0);
@@ -35,20 +37,24 @@ int	check_non_integer_input(char **argv)
 
 int	check_duplicates(char **argv)
 {
-	int	i;
-	int	y;
+	int	current_arg;
+	int	next_arg;
+	int	current_value;
+	int	next_value;
 
-	i = 0;
-	while (argv[i])
+	current_arg = 0;
+	while (argv[current_arg])
 	{
-		y = i + 1;
-		while (argv[y])
+		next_arg = current_arg + 1;
+		current_value = ft_atoi(argv[current_arg]);
+		while (argv[next_arg])
 		{
-			if (!ft_strncmp(argv[i], argv[y], ft_strlen(argv[i])))
+			next_value = ft_atoi(argv[next_arg]);
+			if (current_value == next_value)
 				return (1);
-			y++;
+			next_arg++;
 		}
-		i++;
+		current_arg++;
 	}
 	return (0);
 }
@@ -94,7 +100,7 @@ void	check_which_algorithm_to_use(t_stack *stack_a, t_stack *stack_b)
 	else if (stack_a->size == 4)
 		sort_stack_with_4_nodes(stack_a, stack_b);
 	else if (stack_a->size == 5)
-		ft_printf("stack with 5 nodes\n");
+		sort_stack_with_5_nodes(stack_a, stack_b);
 	else
 		turk_sort(stack_a, stack_b);
 }

@@ -6,7 +6,7 @@
 /*   By: tmurua <tmurua@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 12:52:53 by tmurua            #+#    #+#             */
-/*   Updated: 2024/10/14 11:43:06 by tmurua           ###   ########.fr       */
+/*   Updated: 2024/10/14 13:11:50 by tmurua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ void	check_which_algorithm_to_use(t_stack *stack_a, t_stack *stack_b)
 	else if (stack_a->size == 3)
 		sort_stack_with_3_nodes(stack_a);
 	else if (stack_a->size == 4)
-		ft_printf("stack with 4 nodes\n");
+		sort_stack_with_4_nodes(stack_a, stack_b);
 	else if (stack_a->size == 5)
 		ft_printf("stack with 5 nodes\n");
 	else

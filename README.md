@@ -16,7 +16,7 @@
 1. **Clone the Repository:**
     
     ```bash
-    git clone <https://github.com/tmurua/push_swap.git>
+    git clone https://github.com/tmurua/push_swap.git
     
     ```
     

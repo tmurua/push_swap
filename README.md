@@ -36,8 +36,6 @@
 ## Usage
 
 ```bash
-bash
-Copy code
 ./push_swap <numbers>
 ```
 

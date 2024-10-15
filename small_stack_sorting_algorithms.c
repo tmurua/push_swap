@@ -6,7 +6,7 @@
 /*   By: tmurua <tmurua@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 11:19:31 by tmurua            #+#    #+#             */
-/*   Updated: 2024/10/14 19:02:43 by tmurua           ###   ########.fr       */
+/*   Updated: 2024/10/15 13:49:13 by tmurua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,32 +67,6 @@ void	sort_stack_with_5_nodes(t_stack *stack_a, t_stack *stack_b)
 	push_to_b_pb(stack_a, stack_b);
 	sort_stack_with_4_nodes(stack_a, stack_b);
 	push_to_a_pa(stack_b, stack_a);
-}
-
-/*	loop from first node, if current_node->value < smallest found so far, update
-	its value and position to be the smallest, until there's no more nodes */
-int	find_position_of_smallest_node(t_stack *stack_a)
-{
-	t_node	*current_node;
-	int		current_smallest_node_value;
-	int		smallest_node_position;
-	int		node_position;
-
-	current_node = stack_a->first;
-	current_smallest_node_value = current_node->value;
-	smallest_node_position = 0;
-	node_position = 0;
-	while (current_node != NULL)
-	{
-		if (current_node->value < current_smallest_node_value)
-		{
-			current_smallest_node_value = current_node->value;
-			smallest_node_position = node_position;
-		}
-		current_node = current_node->next;
-		node_position++;
-	}
-	return (smallest_node_position);
 }
 
 /*	if smallest node is in the first half rotate stack until it is at the top

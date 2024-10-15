@@ -6,7 +6,7 @@
 /*   By: tmurua <tmurua@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 09:31:13 by tmurua            #+#    #+#             */
-/*   Updated: 2024/10/14 10:33:48 by tmurua           ###   ########.fr       */
+/*   Updated: 2024/10/15 13:42:15 by tmurua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ void	populate_stack_a(int argc, char **argv, t_stack *stack_a)
 	stack_a->size = argc;
 }
 
+/* assign node->rank to -1 as node is still unassigned */
 t_node	*create_node(int value, t_stack *stack_a)
 {
 	t_node	*node;
@@ -50,6 +51,7 @@ t_node	*create_node(int value, t_stack *stack_a)
 	if (!node)
 		wrong_input(stack_a);
 	node->value = value;
+	node->rank = -1;
 	node->next = NULL;
 	node->previous = NULL;
 	return (node);

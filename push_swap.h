@@ -6,7 +6,7 @@
 /*   By: tmurua <tmurua@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 09:06:02 by tmurua            #+#    #+#             */
-/*   Updated: 2024/10/14 20:45:38 by tmurua           ###   ########.fr       */
+/*   Updated: 2024/10/15 17:56:54 by tmurua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,12 @@
 # define INT_MAX 2147483647
 
 /* structures */
+/*	node.rank is how chunk_sort_algorithm() order nodes in the stacks
+	smallest value is rank 0 and should be the 1st node of stack_a at the end */
 typedef struct s_node
 {
 	int				value;
+	int				rank;
 	struct s_node	*next;
 	struct s_node	*previous;
 }	t_node;
@@ -85,14 +88,21 @@ void	insert_node_dst(t_stack *dst, t_node *node_to_move);
 void	push_to_a_pa(t_stack *stack_b, t_stack *stack_a);
 void	push_to_b_pb(t_stack *stack_a, t_stack *stack_b);
 
-/* turk_sort_algorithm.c */
-void	turk_sort(t_stack *stack_a, t_stack *stack_b);
+/* chunk_sort_algorithm.c */
+void	chunk_sort_algorithm(t_stack *stack_a, t_stack *stack_b);
+void	push_to_b_in_chunks(t_stack *stack_a, t_stack *stack_b);
+void	push_back_to_a_in_order(t_stack *stack_a, t_stack *stack_b);
 
 /* small_stack_sorting_algorithms.c */
 void	sort_stack_with_3_nodes(t_stack *stack_a);
 void	sort_stack_with_4_nodes(t_stack *stack_a, t_stack *stack_b);
 void	sort_stack_with_5_nodes(t_stack *stack_a, t_stack *stack_b);
+void	move_smallest_node_to_top(t_stack *stack_a, int smallest_node_rank);
+
+/* ranks_and_positions_of_nodes.c */
+t_node	*find_smallest_node(t_stack *stack_a);
 int		find_position_of_smallest_node(t_stack *stack_a);
-void	move_smallest_node_to_top(t_stack *stack_a, int smallest_node_position);
+void	assign_ranks_to_nodes(t_stack *stack_a);
+int		find_position_of_biggest_node(t_stack *stack);
 
 #endif

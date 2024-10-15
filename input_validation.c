@@ -6,7 +6,7 @@
 /*   By: tmurua <tmurua@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 12:52:53 by tmurua            #+#    #+#             */
-/*   Updated: 2024/10/14 18:43:49 by tmurua           ###   ########.fr       */
+/*   Updated: 2024/10/14 23:04:04 by tmurua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,5 +102,5 @@ void	check_which_algorithm_to_use(t_stack *stack_a, t_stack *stack_b)
 	else if (stack_a->size == 5)
 		sort_stack_with_5_nodes(stack_a, stack_b);
 	else
-		turk_sort(stack_a, stack_b);
+		chunk_sort_algorithm(stack_a, stack_b);
 }

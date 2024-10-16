@@ -6,7 +6,7 @@
 /*   By: tmurua <tmurua@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 12:12:10 by tmurua            #+#    #+#             */
-/*   Updated: 2024/10/15 20:53:22 by tmurua           ###   ########.fr       */
+/*   Updated: 2024/10/16 23:37:00 by tmurua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ t_node	*find_smallest_node(t_stack *stack_a)
 
 	current_node = stack_a->first;
 	smallest_node = current_node;
-	current_smallest_node_value = current_node->value;
+	current_smallest_node_value = INT_MAX;
 	while (current_node != NULL)
 	{
 		if (current_node->value < current_smallest_node_value)
@@ -94,7 +94,8 @@ void	assign_ranks_to_nodes(t_stack *stack_a)
 	}
 }
 
-/* find position of the node with the maximum rank in the stack */
+/*	find position of the node with the maximum rank in the stack
+	current_max_rank = INT_MIN, so any node's rank will be > than init value */
 int	find_position_of_biggest_node(t_stack *stack)
 {
 	t_node	*current_node;

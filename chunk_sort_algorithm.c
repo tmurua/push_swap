@@ -6,7 +6,7 @@
 /*   By: tmurua <tmurua@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 09:25:26 by tmurua            #+#    #+#             */
-/*   Updated: 2024/10/15 20:53:46 by tmurua           ###   ########.fr       */
+/*   Updated: 2024/10/16 18:38:08 by tmurua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,7 @@ void	push_to_b_in_chunks(t_stack *stack_a, t_stack *stack_b)
 	}
 }
 
-/*	biggest node goes to top of b, then push all nodes back to a
-	check if biggest node  is in 1st or 2nd half to rb or rrb */
+/*	biggest node goes to top of b, then push all nodes back to a */
 void	push_back_to_a_in_order(t_stack *stack_a, t_stack *stack_b)
 {
 	int	biggest_node_position;
@@ -52,23 +51,29 @@ void	push_back_to_a_in_order(t_stack *stack_a, t_stack *stack_b)
 	while (stack_b->size > 0)
 	{
 		biggest_node_position = find_position_of_biggest_node(stack_b);
-		if (biggest_node_position <= stack_b->size / 2)
-		{
-			while (biggest_node_position > 0)
-			{
-				rotate_b_rb(stack_b);
-				biggest_node_position--;
-			}
-		}
-		else
-		{
-			biggest_node_position = stack_b->size - biggest_node_position;
-			while (biggest_node_position > 0)
-			{
-				reverse_rotate_b_rrb(stack_b);
-				biggest_node_position--;
-			}
-		}
+		move_biggest_node_to_top(stack_b, biggest_node_position);
 		push_to_a_pa(stack_b, stack_a);
+	}
+}
+
+/* 	check if biggest node  is in 1st or 2nd half to rb or rrb */
+void	move_biggest_node_to_top(t_stack *stack_b, int biggest_node_position)
+{
+	if (biggest_node_position <= stack_b->size / 2)
+	{
+		while (biggest_node_position > 0)
+		{
+			rotate_b_rb(stack_b);
+			biggest_node_position--;
+		}
+	}
+	else
+	{
+		biggest_node_position = stack_b->size - biggest_node_position;
+		while (biggest_node_position > 0)
+		{
+			reverse_rotate_b_rrb(stack_b);
+			biggest_node_position--;
+		}
 	}
 }

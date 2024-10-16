@@ -6,7 +6,7 @@
 /*   By: tmurua <tmurua@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 09:06:02 by tmurua            #+#    #+#             */
-/*   Updated: 2024/10/15 17:56:54 by tmurua           ###   ########.fr       */
+/*   Updated: 2024/10/16 18:37:41 by tmurua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,7 @@ void	push_to_b_pb(t_stack *stack_a, t_stack *stack_b);
 void	chunk_sort_algorithm(t_stack *stack_a, t_stack *stack_b);
 void	push_to_b_in_chunks(t_stack *stack_a, t_stack *stack_b);
 void	push_back_to_a_in_order(t_stack *stack_a, t_stack *stack_b);
+void	move_biggest_node_to_top(t_stack *stack_b, int biggest_node_position);
 
 /* small_stack_sorting_algorithms.c */
 void	sort_stack_with_3_nodes(t_stack *stack_a);

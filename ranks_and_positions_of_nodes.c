@@ -6,7 +6,7 @@
 /*   By: tmurua <tmurua@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 12:12:10 by tmurua            #+#    #+#             */
-/*   Updated: 2024/10/16 23:37:00 by tmurua           ###   ########.fr       */
+/*   Updated: 2024/10/17 02:58:21 by tmurua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,37 +14,37 @@
 
 /*	loop from 1st node, if current_node->value < smallest_node_value found so
 	far, update its value and itself as smallest, until there's no more nodes */
-t_node	*find_smallest_node(t_stack *stack_a)
+t_node	*find_current_smallest_node(t_stack *stack_a)
 {
 	t_node	*current_node;
-	t_node	*smallest_node;
+	t_node	*current_smallest_node;
 	int		current_smallest_node_value;
 
 	current_node = stack_a->first;
-	smallest_node = current_node;
+	current_smallest_node = current_node;
 	current_smallest_node_value = INT_MAX;
 	while (current_node != NULL)
 	{
 		if (current_node->value < current_smallest_node_value)
 		{
 			current_smallest_node_value = current_node->value;
-			smallest_node = current_node;
+			current_smallest_node = current_node;
 		}
 		current_node = current_node->next;
 	}
-	return (smallest_node);
+	return (current_smallest_node);
 }
 
-/*	exact same logic as find_smallest_node but this function is used in
+/*	exact same logic as find_current_smallest_node but this function is used in
 	assign_ranks_to_nodes(), so if statement also just checks unassigned nodes*/
-t_node	*find_biggest_node(t_stack *stack_a)
+t_node	*find_current_biggest_node(t_stack *stack_a)
 {
 	t_node	*current_node;
-	t_node	*biggest_node;
+	t_node	*current_biggest_node;
 	int		current_biggest_node_value;
 
 	current_node = stack_a->first;
-	biggest_node = current_node;
+	current_biggest_node = current_node;
 	current_biggest_node_value = INT_MIN;
 	while (current_node != NULL)
 	{
@@ -52,11 +52,11 @@ t_node	*find_biggest_node(t_stack *stack_a)
 			&& current_node->rank == -1)
 		{
 			current_biggest_node_value = current_node->value;
-			biggest_node = current_node;
+			current_biggest_node = current_node;
 		}
 		current_node = current_node->next;
 	}
-	return (biggest_node);
+	return (current_biggest_node);
 }
 
 /* loop from 1st node, if current_node==smallest_node return current_node_pos */
@@ -67,7 +67,7 @@ int	find_position_of_smallest_node(t_stack *stack_a)
 	int		current_node_position;
 
 	current_node = stack_a->first;
-	smallest_node = find_smallest_node(stack_a);
+	smallest_node = find_current_smallest_node(stack_a);
 	current_node_position = 0;
 	while (current_node != NULL)
 	{
@@ -79,18 +79,17 @@ int	find_position_of_smallest_node(t_stack *stack_a)
 	return (-1);
 }
 
-/* loop all stack_a and assign rank to each node from the biggest_node */
+/* loop all stack_a and assign rank to each node descending from biggest_node */
 void	assign_ranks_to_nodes(t_stack *stack_a)
 {
-	t_node	*biggest_node;
+	t_node	*current_biggest_node;
 	int		current_node_rank;
 
 	current_node_rank = stack_a->size - 1;
 	while (current_node_rank >= 0)
 	{
-		biggest_node = find_biggest_node(stack_a);
-		if (biggest_node)
-			biggest_node->rank = current_node_rank--;
+		current_biggest_node = find_current_biggest_node(stack_a);
+		current_biggest_node->rank = current_node_rank--;
 	}
 }
 
